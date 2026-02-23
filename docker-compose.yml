@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 8yu4hjklenwfw90pef
+      POSTGRES_DB: knowledge_db
+    ports:
+      - "5432:5432"
+
+ 
+  backend:
+    build: ./backend-java
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/knowledge_db
+
+
+  ml-service:
+    build: ./ml-service
+    ports:
+      - "8000:8000"
+
+  
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
