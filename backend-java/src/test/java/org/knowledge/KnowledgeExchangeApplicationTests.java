@@ -1,10 +1,10 @@
-package com.knowlenge;
+package org.knowledge;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BackendJavaApplicationTests {
+class KnowledgeExchangeApplicationTests {
 
 	@Test
 	void contextLoads() {
